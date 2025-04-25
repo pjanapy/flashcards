@@ -2,13 +2,25 @@ import random
 
 class Set:
     
-    def __init__(self, name, description, cards=None, played_cards=None, statistics=None):
+    def __init__(self,
+                 name, 
+                 description, 
+                 cards=None, 
+                 played_cards=None,
+                 statistics=None
+                 ):
         self.name = name
         self.description = description
         self.cards = cards if cards is not None else []
         self.played_cards = played_cards if played_cards is not None else []
-        self.statistics = statistics if statistics is not None else {}
-    
+        if statistics is not None:
+            self.statistics = statistics
+        else:
+            self.statistics = dict(
+                games_count = 0,
+                score = 0
+            )
+
     def add_card(self, question, answer):
         self.cards.append((question, answer))
         return True
@@ -38,3 +50,16 @@ class Set:
             self.cards.remove(card)
         if card in self.played_cards:
             self.played_cards.remove(card)
+
+    def add_games_count(self):
+        self.statistics['games_count'] += 1
+    
+    def add_score(self, score):
+        self.statistics['score'] += score
+
+    def import_cards(self, data):
+        current_cards = self.get_cards()
+        
+        if len(data) > 0:
+            unique = set(data) - set(current_cards)
+            self.cards.extend(list(unique))

@@ -1,4 +1,5 @@
 __pycache__/
+data_files/
 *.py[cod]
 *$py.class
 _data.pkl
