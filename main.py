@@ -25,7 +25,7 @@ def run():
                 clear_console()
                 flashcards.process_input(input)
         except KeyboardInterrupt:
-            flashcards.exit()
+            flashcards.xx()
 
 if __name__ == "__main__":
     run()

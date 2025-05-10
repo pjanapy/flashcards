@@ -4,6 +4,17 @@ from global_variables import color
 from Set import Set
 
 class Flashcards:
+    '''
+    TODO:
+    - Replace multiple spaces in the answer with a single space, and convert single quotes (') to double quotes.
+    - Implement more sophisticated statistics: track a timeline of attempts, collect data for each 
+      attempt, display results within a selected timespan, show per-question statistics, and save all 
+      stats to a CSV file.
+    - Separate the application's logic into a model part (e.g., data, computations, business logic)
+      and a presentation part (what the user sees).
+    - Besides showing results in the console, provide a way to display them on a web page using 
+      the Flask framework and HTML templates.
+    '''
 
     # List of available commands, with descriptions
     __commands = [
